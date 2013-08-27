@@ -10,6 +10,7 @@ npm install shacrypt
 
 ### Usage
 * Prerequisite
+
 	```javascript
 	var shacrypt = require('shacrypt');
 	``` 
