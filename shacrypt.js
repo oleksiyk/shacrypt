@@ -32,6 +32,14 @@ function validate (prefix, password, salt, rounds) {
 	return _salt;
 }
 
+/**
+ * Generate SHA256-CRYPT hash
+ * 
+ * @param  {String} password
+ * @param  {String} [salt]
+ * @param  {Number} [rounds]
+ * @return {String}
+ */
 exports.sha256crypt = function(password, salt, rounds){
 
 	salt = validate('$5$', password, salt, rounds);	
@@ -39,6 +47,14 @@ exports.sha256crypt = function(password, salt, rounds){
     return shacrypt.sha256crypt(password, salt);
 };
 
+/**
+ * Generate SHA512-CRYPT hash
+ * 
+ * @param  {String} password 
+ * @param  {String} [salt]
+ * @param  {Number} [rounds]
+ * @return {String}
+ */
 exports.sha512crypt = function(password, salt, rounds){
 
 	salt = validate('$6$', password, salt, rounds);
