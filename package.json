@@ -1,7 +1,7 @@
 {
   "name": "shacrypt",
   "description": "Wrapper over sha256-crypt and sha512-crypt functions originally created by Ulrich Drepper <drepper@redhat.com> http://www.akkadia.org/drepper/SHA-crypt.txt",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "homepage": "http://github.com/oleksiyk/shacrypt",
   "author": {
     "name": "Oleksiy Krivoshey",

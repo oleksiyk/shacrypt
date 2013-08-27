@@ -144,16 +144,17 @@ sha512_process_block (const void *buffer, size_t len, struct sha512_ctx *ctx)
 #define CYCLIC(w, s) ((w >> s) | (w << (64 - s)))
 
       /* Compute the message schedule according to FIPS 180-2:6.3.2 step 2.  */
-      for (unsigned int t = 0; t < 16; ++t)
+      unsigned int t = 0;
+      for (t = 0; t < 16; ++t)
 	{
 	  W[t] = SWAP (*words);
 	  ++words;
 	}
-      for (unsigned int t = 16; t < 80; ++t)
+      for (t = 16; t < 80; ++t)
 	W[t] = R1 (W[t - 2]) + W[t - 7] + R0 (W[t - 15]) + W[t - 16];
 
       /* The actual computation according to FIPS 180-2:6.3.2 step 3.  */
-      for (unsigned int t = 0; t < 80; ++t)
+      for (t = 0; t < 80; ++t)
 	{
 	  uint64_t T1 = h + S1 (e) + Ch (e, f, g) + K[t] + W[t];
 	  uint64_t T2 = S0 (a) + Maj (a, b, c);
@@ -242,7 +243,8 @@ sha512_finish_ctx (struct sha512_ctx *ctx, void *resbuf)
   sha512_process_block (ctx->buffer, bytes + pad + 16, ctx);
 
   /* Put result from CTX in first 64 bytes following RESBUF.  */
-  for (unsigned int i = 0; i < 8; ++i)
+  unsigned int i = 0;
+  for (i = 0; i < 8; ++i)
     ((uint64_t *) resbuf)[i] = SWAP (ctx->H[i]);
 
   return resbuf;
