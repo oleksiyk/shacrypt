@@ -18,6 +18,13 @@
   "engines": {
     "node": ">= 0.8.0"
   },
+  "bugs": {
+        "url": "https://github.com/oleksiyk/shacrypt/issues"
+    },
+  "repository": {
+        "type": "git",
+        "url": "git://github.com/oleksiyk/shacrypt.git"
+  },
   "gypfile": true,
   "readme": "Wrapper over http://www.akkadia.org/drepper/SHA-crypt.txt functions by Ulrich Drepper <drepper@redhat.com>",
   "readmeFilename": "README.md",
