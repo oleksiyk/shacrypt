@@ -15,21 +15,25 @@ npm install shacrypt
 	var shacrypt = require('shacrypt');
 	``` 
 * Generate password hash:
+	
 	```javascript
 	var hash = shacrypt.sha256crypt('super password'); 
 // hash = $5$rounds=5000$3a1afb28e54a0391$0d6RupbpABtxCaH8WWOemYwEcToDVZXX/tHpIy6O1U3
 	```
 * Validate password:
+	
 	```javascript
 	console.log(hash == shacrypt.sha256crypt('super password', hash);
 	// true
 	```
 * Specify number of rounds (default is 5000):
+	
 	```javascript
 	var hash = shacrypt.sha256crypt('super password', 10000); 
 	// hash = $5$rounds=10000$b2c0a3ef466b2ec7$poVvVeQAQSE.yec0LBFddzQ9kZ4UxzA5VtsZQShAyt8
 	```
 * Provide your own SALT:
+	
 	```javascript
 	var hash = shacrypt.sha256crypt('super password', 'my-salt'); 
 	// or with iterations=10000
