@@ -1,7 +1,7 @@
 {
   "name": "shacrypt",
   "description": "Wrapper over sha256-crypt and sha512-crypt functions originally created by Ulrich Drepper http://www.akkadia.org/drepper/SHA-crypt.txt",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "homepage": "http://github.com/oleksiyk/shacrypt",
   "author": {
     "name": "Oleksiy Krivoshey",
@@ -26,7 +26,6 @@
         "url": "git://github.com/oleksiyk/shacrypt.git"
   },
   "gypfile": true,
-  "readme": "Wrapper module for http://www.akkadia.org/drepper/SHA-crypt.txt functions by Ulrich Drepper",
   "readmeFilename": "README.md",
   "license": "MIT"
 }
