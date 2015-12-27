@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/oleksiyk/shacrypt.png)](https://travis-ci.org/oleksiyk/shacrypt)
+
 # shacrypt
 
 shacrypt is a simple enough wrapper over sha256-crypt and sha512-crypt functions originally created by Ulrich Drepper. See <http://www.akkadia.org/drepper/SHA-crypt.txt>
