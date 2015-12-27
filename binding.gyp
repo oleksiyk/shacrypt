@@ -2,11 +2,15 @@
   "targets": [
     {
       "target_name": "shacrypt",
-      "sources": [ 
+      "sources": [
       	"src/sha256crypt.c",
       	"src/sha512crypt.c",
-      	"src/shacrypt.cc" 
-      ]
+      	"src/shacrypt.cc"
+      ],
+      'include_dirs': [
+        'deps/libmagic/src',
+        "<!(node -e \"require('nan')\")"
+      ],
     }
   ],
 

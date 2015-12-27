@@ -13,31 +13,31 @@ npm install shacrypt
 
 	```javascript
 	var shacrypt = require('shacrypt');
-	``` 
+	```
 * Generate password hash:
-	
+
 	```javascript
-	var hash = shacrypt.sha256crypt('super password'); 
+	var hash = shacrypt.sha256crypt('super password');
 // hash = $5$rounds=5000$3a1afb28e54a0391$0d6RupbpABtxCaH8WWOemYwEcToDVZXX/tHpIy6O1U3
 	```
 * Validate password:
-	
+
 	```javascript
 	console.log(hash == shacrypt.sha256crypt('super password', hash);
 	// true
 	```
 * Specify number of rounds (default is 5000):
-	
+
 	```javascript
-	var hash = shacrypt.sha256crypt('super password', 10000); 
+	var hash = shacrypt.sha256crypt('super password', 10000);
 	// hash = $5$rounds=10000$b2c0a3ef466b2ec7$poVvVeQAQSE.yec0LBFddzQ9kZ4UxzA5VtsZQShAyt8
 	```
 * Provide your own SALT:
-	
+
 	```javascript
-	var hash = shacrypt.sha256crypt('super password', 'my-salt'); 
+	var hash = shacrypt.sha256crypt('super password', 'my-salt');
 	// or with iterations=10000
-	var hash = shacrypt.sha256crypt('super password', 'my-salt', 10000); 
+	var hash = shacrypt.sha256crypt('super password', 'my-salt', 10000);
 	```
 
 ## Authors
@@ -47,7 +47,7 @@ npm install shacrypt
 
 # License (MIT)
 
-Copyright (c) 2013 Oleksiy Krivoshey.
+Copyright (c) 2013-2015 Oleksiy Krivoshey.
 
 Permission is hereby granted, free of charge, to any person
 obtaining a copy of this software and associated documentation

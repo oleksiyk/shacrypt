@@ -1,32 +1,32 @@
 #include <node.h>
 #include <v8.h>
+#include <nan.h>
 
 #include "sha256crypt.h"
 #include "sha512crypt.h"
 
 using namespace v8;
+using namespace node;
 
-Handle<Value> sha256crypt(const Arguments& args) {
-  HandleScope scope;
+NAN_METHOD(sha256crypt) {
+  Nan::Utf8String key(info[0]);
+  Nan::Utf8String salt(info[1]);
 
-  v8::String::Utf8Value key(args[0]);
-  v8::String::Utf8Value salt(args[1]);
-
-  return scope.Close(String::New( sha256_crypt(*key, *salt)));
+  info.GetReturnValue().Set(Nan::New(sha256_crypt(*key, *salt)).ToLocalChecked());
 }
 
-Handle<Value> sha512crypt(const Arguments& args) {
-  HandleScope scope;
+NAN_METHOD(sha512crypt) {
+  Nan::Utf8String key(info[0]);
+  Nan::Utf8String salt(info[1]);
 
-  v8::String::Utf8Value key(args[0]);
-  v8::String::Utf8Value salt(args[1]);
-
-  return scope.Close(String::New( sha512_crypt(*key, *salt)));
+  info.GetReturnValue().Set(Nan::New(sha512_crypt(*key, *salt)).ToLocalChecked());
 }
 
-void init(Handle<Object> target) {
-	NODE_SET_METHOD(target, "sha256crypt", sha256crypt);
-	NODE_SET_METHOD(target, "sha512crypt", sha512crypt);
+NAN_MODULE_INIT(init) {
+  Nan::Set(target, Nan::New("sha256crypt").ToLocalChecked(),
+    Nan::GetFunction(Nan::New<FunctionTemplate>(sha256crypt)).ToLocalChecked());
+  Nan::Set(target, Nan::New("sha512crypt").ToLocalChecked(),
+    Nan::GetFunction(Nan::New<FunctionTemplate>(sha512crypt)).ToLocalChecked());
 }
 
 NODE_MODULE(shacrypt, init);
