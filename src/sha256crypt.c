@@ -1,10 +1,10 @@
 /* SHA256-based Unix crypt implementation.
    Released into the Public Domain by Ulrich Drepper <drepper@redhat.com>.  */
 
-#ifdef __APPLE__
-  #include <machine/endian.h>
-#else
+#ifdef __linux__
   #include <endian.h>
+#else
+  #include <machine/endian.h>
 #endif
 #include <errno.h>
 #include <limits.h>
